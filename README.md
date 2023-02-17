@@ -31,4 +31,4 @@ Tecnologias utilizadas:
 
 ## 🔗 Link
 
-- 
+- https://rinacimar.github.io/gameshow-ipbf/
