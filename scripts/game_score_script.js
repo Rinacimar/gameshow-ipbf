@@ -73,15 +73,30 @@ function createNumbers() {
 function openModal(number) {
     currentNumber = number;
     const modal = document.getElementById('modal');
-    document.getElementById('modal-text').textContent = numberTexts[number];
-    document.getElementById('modal-game-type').textContent = gameTypes[number];
-    document.getElementById('modal-points').textContent = `${pointValues[number]} pontos`;
-    modal.style.display = 'block';
+    const modalText = document.getElementById('modal-text');
+    const modalGameType = document.getElementById('modal-game-type');
+    const modalPoints = document.getElementById('modal-points');
+    const teamButtons = document.querySelector('.team-buttons');
+
+    if (completedNumbers.has(number)) {
+        modalText.textContent = "Escolha outra opção!";
+        modalGameType.textContent = "";
+        modalPoints.textContent = "";
+        teamButtons.style.display = 'none';
+    } else {
+        modalText.textContent = numberTexts[number];
+        modalGameType.textContent = gameTypes[number];
+        modalPoints.textContent = `${pointValues[number]} pontos`;
+        teamButtons.style.display = 'flex';
+    }
+
+    modal.style.display = 'block'
 }
 
 function concludeNumber(team) {
     if (currentNumber && !completedNumbers.has(currentNumber)) {
-        document.querySelectorAll('.number-box')[currentNumber - 1].classList.add(`completed-${team}`);
+        const boxes = document.querySelectorAll('.number-box');
+        boxes[currentNumber - 1].classList.add(`completed-${team}`);
         scores[team] += pointValues[currentNumber];
         completedNumbers.add(currentNumber);
         updateScores();
