@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameShow - Filadelfia</title>
+
+    <link rel="stylesheet" href="../styles/game_score_style.css" />
+</head>
+<body>
+    <div class="scores-container">
+        <div class="team-score blue-team" id="blue-score">Time Azul: 0</div>
+        <div class="team-score red-team" id="red-score">Time Vermelho: 0</div>
+      </div>
+      
+      <div class="grid-container" id="grid-container"></div>
+      
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <p id="modal-text"></p>
+          <p id="modal-game-type"></p>
+          <p class="points" id="modal-points"></p>
+          <div class="team-buttons">
+            <button class="team-btn blue-btn" onclick="concludeNumber('blue')">Time Azul</button>
+            <button class="team-btn red-btn" onclick="concludeNumber('red')">Time Vermelho</button>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
