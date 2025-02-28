@@ -8,9 +8,9 @@ body {
     margin: 0;
     background-color: #f0f0f0;
     overflow: hidden;
-}
+  }
 
-.scores-container {
+  .scores-container {
     position: absolute;
     top: 20px;
     width: 100%;
@@ -18,35 +18,35 @@ body {
     justify-content: space-between;
     padding: 0 20px;
     box-sizing: border-box;
-}
+  }
 
-.team-score {
+  .team-score {
     padding: 15px 30px;
     border-radius: 10px;
     color: white;
     font-size: clamp(16px, 3vw, 24px);
     font-weight: bold;
-}
+  }
 
-.blue-team {
+  .blue-team {
     background-color: #2196F3;
-}
+  }
 
-.red-team {
+  .red-team {
     background-color: #f44336;
-}
+  }
 
-.grid-container {
+  .grid-container {
     display: grid;
     grid-template-columns: repeat(6, minmax(60px, 1fr));
     grid-template-rows: repeat(3, minmax(60px, 1fr));
     gap: clamp(10px, 2vw, 20px);
-    width: 100%;
+    width: 90%;
     max-width: 1000px;
     margin-top: 80px;
-}
+  }
 
-.number-box {
+  .number-box {
     aspect-ratio: 1;
     width: 100%;
     display: flex;
@@ -58,21 +58,21 @@ body {
     cursor: pointer;
     border-radius: 8px;
     transition: all 0.3s ease;
-}
+  }
 
-.number-box.completed {
+  .number-box.completed {
     background-color: #f44336;
-}
+  }
 
-.number-box.completed-blue {
+  .number-box.completed-blue {
     background-color: #2196F3;
-}
+  }
 
-.number-box.completed-red {
+  .number-box.completed-red {
     background-color: #f44336;
-}
+  }
 
-.modal {
+  .modal {
     display: none;
     position: fixed;
     top: 0;
@@ -81,9 +81,9 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
-}
+  }
 
-.modal-content {
+  .modal-content {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -93,55 +93,108 @@ body {
     border-radius: 10px;
     text-align: center;
     min-width: 300px;
-}
+  }
 
-.points {
+  .points {
     color: #4CAF50;
     font-size: 24px;
     font-weight: bold;
     margin: 10px 0;
-}
+  }
 
-.team-buttons {
+  .team-buttons {
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
-}
+  }
 
-.team-btn {
+  .team-btn {
     padding: 10px 20px;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
+  }
 
-.blue-btn {
+  .blue-btn {
     background-color: #2196F3;
-}
+  }
 
-.red-btn {
+  .red-btn {
     background-color: #f44336;
-}
+  }
 
-.team-btn:hover {
+  .team-btn:hover {
     opacity: 0.9;
-}
+  }
 
-@media (max-width: 600px) {
+  .final-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 300px;
+  }
+
+  .final-scores {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 20px 0;
+  }
+
+  .final-team-score {
+    flex: 1;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+  }
+
+  .winner-text {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #4CAF50;
+  }
+
+  .play-again-btn {
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .play-again-btn:hover {
+    background-color: #45a049;
+  }
+
+  @media (max-width: 600px) {
     .scores-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
     }
 
     .team-score {
-        width: 80%;
-        text-align: center;
+      width: 80%;
+      text-align: center;
     }
 
     .grid-container {
-        margin-top: 120px;
+      margin-top: 120px;
     }
-}
+    .team-score {
+      width: 80%;
+    }
+  }

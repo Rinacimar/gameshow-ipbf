@@ -40,11 +40,12 @@ const numberTexts = {
     18: "Worshipando"
 }
 
-const possiblePoints = [500, 800, 1000, 1100, 1200, 1400, 1500, 1800, 2000];
+const possiblePoints = [500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000];
 let pointValues = {};
 let completedNumbers = new Set();
 let currentNumber = null;
-let scores = { blue: 0, red: 0 };
+let final_scores = { blue: 0, red: 0 };
+let scores = {blue: 0, red: 0};
 
 function shuffleArray(array) {
     return array.sort(() => Math.random() - 0.5);
@@ -97,9 +98,14 @@ function concludeNumber(team) {
     if (currentNumber && !completedNumbers.has(currentNumber)) {
         const boxes = document.querySelectorAll('.number-box');
         boxes[currentNumber - 1].classList.add(`completed-${team}`);
-        scores[team] += pointValues[currentNumber];
+        final_scores[team] += pointValues[currentNumber];
+        scores[team] += 1;
         completedNumbers.add(currentNumber);
         updateScores();
+
+        if (completedNumbers.size === 18) {
+            showFinalScore();
+        }
     }
     document.getElementById('modal').style.display = 'none';
 }
@@ -107,6 +113,26 @@ function concludeNumber(team) {
 function updateScores() {
     document.getElementById('blue-score').textContent = `Time Azul: ${scores.blue}`;
     document.getElementById('red-score').textContent = `Time Vermelho: ${scores.red}`;
+}
+
+function showFinalScore() {
+    const finalModal = document.getElementById('final-modal');
+    const finalBlueScore = document.getElementById('final-blue-score');
+    const finalRedScore = document.getElementById('final-red-score');
+    const winnerText = document.getElementById('winner-text');
+  
+    finalBlueScore.textContent = `Time Azul: ${final_scores.blue}`;
+    finalRedScore.textContent = `Time Vermelho: ${final_scores.red}`;
+  
+    if (final_scores.blue > final_scores.red) {
+      winnerText.textContent = "Time Azul Venceu! ";
+    } else if (final_scores.red > final_scores.blue) {
+      winnerText.textContent = "Time Vermelho Venceu! ";
+    } else {
+      winnerText.textContent = "Empate! ";
+    }
+  
+    finalModal.style.display = 'block';
 }
 
 window.onclick = function(event) {
